@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2007 The Android Open Source Project
+<!-- Copyright (C) 2012-2013 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -116,4 +116,19 @@
     <string name="pref_camera_focustime_entry_20">20s</string>
     <string name="pref_camera_focustime_entry_30">30s</string>
     <string name="pref_camera_focustime_entry_infinite">Uendelig</string>
+
+    <string name="pref_camera_nohands_title">Håndfri udløser</string>
+    <string name="pref_camera_nohands_voice_entry">Stemme</string>
+
+    <string name="pref_camera_timer_entry_0">Fra</string>
+    <string name="pref_camera_timer_entry_10">10s</string>
+    <string name="pref_camera_timer_entry_20">20s</string>
+    <string name="pref_camera_timer_entry_30">30s</string>
+    <string name="pref_camera_timer_entry_40">40s</string>
+    <string name="pref_camera_timer_entry_50">50s</string>
+    <string name="pref_camera_timer_entry_60">60s</string>
+
+    <string name="voice_hint">Tag et foto fra afstand ved sige et udløser-ord. Du kan bruge \'Cid\', \'Whisky\', og selvfølgelig \'Cheese!\'</string>
+
+    <string name="pref_nohands_persistent_title">Vedvarende håndfri</string>
 </resources>

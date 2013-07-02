@@ -36,6 +36,7 @@ import com.android.gallery3d.common.ApiHelper;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
@@ -66,6 +67,7 @@ public class CameraSettings {
     public static final String KEY_CAMERA_HDR = "pref_camera_hdr_key";
     public static final String KEY_CAMERA_FIRST_USE_HINT_SHOWN = "pref_camera_first_use_hint_shown_key";
     public static final String KEY_VIDEO_FIRST_USE_HINT_SHOWN = "pref_video_first_use_hint_shown_key";
+    public static final String KEY_VOICE_FIRST_USE_HINT_SHOWN = "pref_voice_first_use_hint_shown_key";
     public static final String KEY_POWER_SHUTTER = "pref_power_shutter";
     public static final String KEY_ISO_MODE = "pref_camera_iso_key";
     public static final String KEY_JPEG = "pref_camera_jpeg_key";
@@ -74,6 +76,9 @@ public class CameraSettings {
     public static final String KEY_VIDEOCAMERA_COLOR_EFFECT = "pref_camera_video_coloreffect_key";
     public static final String KEY_BURST_MODE = "pref_camera_burst_key";
     public static final String KEY_STORAGE = "pref_camera_storage_key";
+    public static final String KEY_NOHANDS_MODE = "pref_nohands_shutter_key";
+    public static final String KEY_PERSISTENT_NOHANDS = "pref_nohands_persistent_key";
+    public static final String KEY_VIDEO_HDR = "pref_video_hdr_key";
 
     public static final String EXPOSURE_DEFAULT_VALUE = "0";
     public static final String VALUE_ON = "on";
@@ -186,6 +191,7 @@ public class CameraSettings {
         ListPreference colorEffect = group.findPreference(KEY_COLOR_EFFECT);
         ListPreference videoColorEffect = group.findPreference(KEY_VIDEOCAMERA_COLOR_EFFECT);
         ListPreference storage = group.findPreference(KEY_STORAGE);
+        ListPreference videoHdr = group.findPreference(KEY_VIDEO_HDR);
 
         // Since the screen could be loaded from different resources, we need
         // to check if the preference is available here
@@ -259,6 +265,10 @@ public class CameraSettings {
         }
         if (storage != null) {
             buildStorage(group, storage);
+        }
+        if (videoHdr != null &&
+            !Util.isVideoHdrSupported(mParameters)) {
+            removePreference(group, videoHdr.getKey());
         }
     }
 
@@ -673,6 +683,21 @@ public class CameraSettings {
     public static void dumpParameters(Parameters params) {
         Set<String> sortedParams = new TreeSet<String>();
         sortedParams.addAll(Arrays.asList(params.flatten().split(";")));
-        Log.d(TAG, "Parameters: " + sortedParams.toString());
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        Iterator<String> i = sortedParams.iterator();
+        while (i.hasNext()) {
+            String nextParam = i.next();
+            if ((sb.length() + nextParam.length()) > 2044) {
+                Log.d(TAG, "Parameters: " + sb.toString());
+                sb = new StringBuilder();
+            }
+            sb.append(nextParam);
+            if (i.hasNext()) {
+                sb.append(", ");
+            }
+        }
+        sb.append("]");
+        Log.d(TAG, "Parameters: " + sb.toString());
     }
 }

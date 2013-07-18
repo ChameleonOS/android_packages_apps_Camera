@@ -51,4 +51,6 @@
     <!-- Magic for enabling ZSL on Samsung cameras -->
     <bool name="sendMagicSamsungZSLCommand">false</bool>
     <string name="videoHdrParam" translatable="false">video-hdr</string>
+    <!-- Whether to use back camera only when checking if the device has a camera -->
+    <bool name="config_checkBackCameraOnly">true</bool>
 </resources>

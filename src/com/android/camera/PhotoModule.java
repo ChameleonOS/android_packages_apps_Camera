@@ -322,9 +322,6 @@ public class PhotoModule
     // Camera timer.
     private boolean mTimerMode = false;
 
-    // Camera timer.
-    private boolean mTimerMode = false;
-
     private boolean mQuickCapture;
     protected int mCaptureMode;
 

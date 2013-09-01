@@ -198,21 +198,6 @@ public class Util {
     private static boolean mIsMuted = false;
     public static Object mSurfaceTexture;
 
-    // Do not change the focus mode when TTF is used
-    private static boolean sNoFocusModeChangeForTouch;
-
-    // Send magic command to hardware for Samsung ZSL
-    private static boolean sSendMagicSamsungZSLCommand;
-
-    private static SpeechRecognizer mSpeechRecognizer;
-    private static Intent mSpeechRecognizerIntent;
-    private static String[] mShutterWords;
-    private static PhotoModule mPhotoModule;
-    private static boolean mSpeechActive = false;
-    private static boolean mIsCountDownOn;
-    private static AudioManager mAudioManager;
-    private static boolean mIsMuted = false;
-
     private Util() {
     }
 

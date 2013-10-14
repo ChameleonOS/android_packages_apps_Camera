@@ -134,4 +134,5 @@
     <string name="voice_hint">Pořízení fotografie vyslovením uričitého slova: pro vyfocení je možné použít \'Cid\', \'Whisky\' a samozřejmě \'Cheese!\'</string>
 
     <string name="pref_nohands_persistent_title">Ovládání závěrky hlasem</string>
+
 </resources>
